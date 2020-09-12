@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Exercícios</h1>
+
+<p>Clique no botão pra sortear os números do intervalo de forma aleatória</p>
+
+<button onclick="sortearIntervalo()">Clique</button>
+
+<p id="demo"></p>
+
+<p>Clique no botão pra sortear os números da duração de forma aleatória</p>
+
+<button onclick="sortearDuracao()">Clique</button>
+
+<p id="demoDuracao"></p>
+
+<h2>1)a)Intervalo médio entre chegadas</h2>
+<p id="resultadoIntervalo"></p>
+<h2>b)Duração média da carga</h2>
+<p id="resultadoDuracao"></p>
+<h2>d)Tamanho médio da fila</h2>
+<p id="resultadoTamanhoMedioFila"></p>
+<h2>e)Tamanho médio de espera na fila</h2>
+<p id="resultadoMedioEsperaFila"></p>
+
+<script>
+var intervalo = [02, 14, 02,	13,	09,	01,	10,	09,	08,	09,	14,	08,	09,	08,	07,	10,	10,	08,	01,	14 ];
+document.getElementById("demo").innerHTML = intervalo;  
+
+var duracao = [04, 06,	06,	05,	05,	07,	08,	03,	08,	04,	03,	02,	08,	03,	03,	05,	03,	08,	05,	05 ];
+
+document.querySelector("#resultadoIntervalo").innerHTML = 
+` <h3>R: ${intervalo.reduce(somarIntervalo, 0)/intervalo.length} `
+
+document.querySelector("#resultadoDuracao").innerHTML = 
+`<h3>R: ${duracao.reduce(somarDuracao, 0)/duracao.length}`    
+
+function somarIntervalo() {
+  let soma = 0
+  for(let i in intervalo) {
+    soma += intervalo[i]
+  }
+  return soma
+}
+
+function somarDuracao(){
+    let soma = 0
+    for(let i in duracao){
+        soma += duracao[i]
+    }
+    return soma
+}
+
+function sortearIntervalo() {
+    var i, j, k;
+  for (i = intervalo.length -1; i > 0; i--) {
+    j = Math.floor(Math.random() * i)
+    k = intervalo[i]
+    intervalo[i] = intervalo[j]
+    intervalo[j] = k
+  }
+  document.getElementById("demo").innerHTML = intervalo;
+}
+
+function sortearDuracao() {
+    var i, j, k;
+  for (i = duracao.length -1; i > 0; i--) {
+    j = Math.floor(Math.random() * i)
+    k = duracao[i]
+    duracao[i] = duracao[j]
+    duracao[j] = k
+  }
+  document.getElementById("demoDuracao").innerHTML = duracao;
+}
+
+function tamanhoMedioFila() { 
+  const 
+}
+
+//var square = function(numero) {return numero * numero}; 
+//var x = square(4) //x recebe o valor 16
+
+ 
+</script>
+
+</body>
+</html>
+
